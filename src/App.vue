@@ -61,7 +61,6 @@ async function handleInput(e: Event) {
     }
   });
 
-  console.log("完成")
   return showDownload(
     Array.from(datasource.keys()).map(k => `${k}, ${datasource.get(k)}`).join('\n')
   );

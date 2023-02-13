@@ -33,7 +33,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "com.upyun.dev",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
