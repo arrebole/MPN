@@ -11,7 +11,7 @@ use std::fs;
 fn rules() -> String {
     // let path = env::current_dir();
     // println!("The current directory is {}", path.expect("REASON").display());
-    let result = fs::read_to_string("./interparser.json").unwrap();
+    let result = fs::read_to_string("/usr/interparser.json").unwrap();
     return  result.into();
 }
 

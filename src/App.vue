@@ -10,7 +10,8 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue';
-import { invoke } from '@tauri-apps/api';
+// import { invoke } from '@tauri-apps/api';
+import rules from './rules.json';
 
 const state = reactive({
   url: '',
@@ -40,7 +41,6 @@ async function handleInput(e: Event) {
 
   // 手机号池
   const datasource = new Map<string, number>();
-  const rules = JSON.parse(await invoke('rules') as string);
 
   data.split('\n').forEach((line) => {
     const [mobile, count] = line.split(',');
@@ -49,6 +49,7 @@ async function handleInput(e: Event) {
     }
 
     for (const key in rules) {
+      // @ts-ignore
       const regs: RegExp[] = rules[key].map((v: string) => new RegExp(v));
       if (regs.map(r => r.test(mobile)).includes(true)) {
         if (datasource.has(key)) {
